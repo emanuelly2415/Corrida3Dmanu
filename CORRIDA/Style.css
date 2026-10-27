@@ -1,0 +1,452 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #10151b;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+}
+
+#jogo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #83c8f3;
+}
+
+#cena {
+  position: absolute;
+  inset: 0;
+}
+
+#cena canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.topo {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  z-index: 3;
+}
+
+.botao-redondo {
+  width: 43px;
+  height: 43px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid #d7e0e9;
+  background: #101923dd;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.info-caixa {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  min-width: 83px;
+  border: 1px solid #d6e0e7;
+  border-radius: 5px;
+  background: #0c141ddd;
+}
+
+.info-caixa div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.info-caixa small {
+  color: #bfcbd5;
+  font-size: 8px;
+}
+
+.info-caixa strong {
+  font-size: 14px;
+}
+
+#reiniciar {
+  margin-left: auto;
+}
+
+.velocimetro {
+  position: absolute;
+  top: 76px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.circulo-velocidade {
+  width: 126px;
+  height: 126px;
+  border-radius: 50%;
+  border: 5px solid #d7e0e9;
+  outline: 3px solid #17212d;
+  background: radial-gradient(circle, #1c3e6c, #06172f);
+  box-shadow: 0 5px 15px #0009;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.velocidade-numero {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 10px;
+}
+
+.velocidade-numero strong {
+  font-size: 31px;
+}
+
+.velocidade-numero span {
+  font-size: 10px;
+}
+
+.marcador {
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #c9e8ff;
+  margin-top: 4px;
+}
+
+.marcha {
+  min-width: 85px;
+  padding: 6px 12px;
+  border: 1px solid #d6e0e7;
+  border-radius: 5px;
+  background: #0a111de8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.marcha span {
+  font-size: 9px;
+  color: #cbd5df;
+}
+
+.marcha strong {
+  color: #62e8ff;
+  font-size: 20px;
+}
+
+.painel-jogadores {
+  position: absolute;
+  top: 105px;
+  left: 14px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.jogador {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 145px;
+  padding: 8px;
+  border: 1px solid #ffffff80;
+  border-radius: 7px;
+  background: #0c141dd9;
+}
+
+.jogador div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.jogador div strong {
+  font-size: 10px;
+}
+
+.jogador small,
+.jogador > strong {
+  font-size: 9px;
+}
+
+.bolinha {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.jogador-vermelho .bolinha {
+  background: #ff333d;
+}
+
+.jogador-azul .bolinha {
+  background: #28a8ff;
+}
+
+.mensagem {
+  position: absolute;
+  z-index: 4;
+  top: 53%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 16px;
+  max-width: 90%;
+  border-radius: 8px;
+  background: #071019d9;
+  border: 1px solid #ffffff60;
+  font-weight: bold;
+  font-size: 13px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.tela-inicial {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #040c162e;
+}
+
+.tela-inicial.escondida {
+  display: none;
+}
+
+.cartao-inicial {
+  width: min(360px, 100%);
+  padding: 27px 22px;
+  text-align: center;
+  border: 1px solid #ffffff80;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #101c2aef, #182e43ee);
+  box-shadow: 0 12px 40px #0008;
+}
+
+.icone-carro {
+  font-size: 52px;
+}
+
+.cartao-inicial h1 {
+  margin-top: 7px;
+  font-size: 29px;
+  letter-spacing: 2px;
+}
+
+.cartao-inicial p {
+  margin: 10px 0 21px;
+  color: #c9d7e3;
+  font-size: 13px;
+}
+
+#iniciar {
+  width: 100%;
+  padding: 14px;
+  border: 0;
+  border-radius: 7px;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+  color: white;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.cartao-inicial > small {
+  display: block;
+  margin-top: 15px;
+  color: #aebdcb;
+  font-size: 10px;
+}
+
+.controles {
+  position: absolute;
+  bottom: 58px;
+  left: 16px;
+  right: 16px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  pointer-events: none;
+}
+
+.direcao,
+.pedais {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.controle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid #d8e3e9;
+  background: linear-gradient(#384b5d, #101c27);
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  touch-action: none;
+}
+
+.pedais {
+  align-items: flex-end;
+}
+
+.pedal {
+  width: 55px;
+  height: 90px;
+  border: 2px solid #e0e8ee;
+  border-radius: 10px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.freio {
+  height: 65px;
+  background: linear-gradient(#626c77, #28323d);
+}
+
+.acelerar {
+  background: linear-gradient(#00d9ff, #0065cc);
+}
+
+.rodape {
+  position: absolute;
+  bottom: 10px;
+  left: 14px;
+  right: 14px;
+  z-index: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: white;
+  font-size: 9px;
+  font-weight: bold;
+  text-shadow: 0 2px 5px #000;
+  pointer-events: none;
+}
+
+@media (max-width: 600px) {
+  .topo {
+    top: 9px;
+    left: 8px;
+    right: 8px;
+    gap: 5px;
+  }
+
+  .botao-redondo {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .info-caixa {
+    min-width: 67px;
+    padding: 5px;
+    gap: 4px;
+  }
+
+  .info-caixa small {
+    font-size: 7px;
+  }
+
+  .info-caixa strong {
+    font-size: 11px;
+  }
+
+  .velocimetro {
+    top: 68px;
+    right: 12px;
+  }
+
+  .circulo-velocidade {
+    width: 100px;
+    height: 100px;
+  }
+
+  .velocidade-numero strong {
+    font-size: 25px;
+  }
+
+  .painel-jogadores {
+    top: 72px;
+    left: 8px;
+  }
+
+  .jogador {
+    min-width: 118px;
+    padding: 6px;
+    gap: 5px;
+  }
+
+  .jogador div strong,
+  .jogador small,
+  .jogador > strong {
+    font-size: 8px;
+  }
+
+  .controles {
+    bottom: 48px;
+    left: 10px;
+    right: 10px;
+  }
+
+  .controle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .pedais {
+    gap: 5px;
+  }
+
+  .pedal {
+    width: 43px;
+    height: 75px;
+    font-size: 8px;
+  }
+
+  .freio {
+    height: 55px;
+  }
+
+  .rodape {
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    font-size: 8px;
+  }
+}

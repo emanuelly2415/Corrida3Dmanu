@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Racing 3D</title>
+    <link rel="stylesheet" href="./Style.css">
+
+    <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
+</head>
+
+<body>
+    <main id="jogo">
+        <div id="cena"></div>
+
+        <header class="topo">
+            <button id="pausar" class="botao-redondo">Ⅱ</button>
+
+            <div class="info-caixa">
+                <span>🏁</span>
+                <div>
+                    <small>PROGRESSO</small>
+                    <strong id="progresso">0%</strong>
+                </div>
+            </div>
+
+            <div class="info-caixa">
+                <span>◷</span>
+                <div>
+                    <small>TEMPO</small>
+                    <strong id="tempo">00:00</strong>
+                </div>
+            </div>
+
+            <button id="reiniciar" class="botao-redondo">↻</button>
+        </header>
+
+        <section class="velocimetro">
+            <div class="circulo-velocidade">
+                <div class="velocidade-numero">
+                    <strong id="velocidade1">0</strong>
+                    <span>km/h</span>
+                </div>
+                <div class="marcador">CITY RACING</div>
+            </div>
+            <div class="marcha">
+                <span>MARCHA</span>
+                <strong id="marcha">1</strong>
+            </div>
+        </section>
+
+        <section class="painel-jogadores">
+            <div class="jogador jogador-vermelho">
+                <span class="bolinha"></span>
+                <div><strong>JOGADOR 1</strong><small>W A S D</small></div>
+                <strong id="distancia1">0 m</strong>
+            </div>
+
+            <div class="jogador jogador-azul">
+                <span class="bolinha"></span>
+                <div><strong>JOGADOR 2</strong><small>SETAS</small></div>
+                <strong id="distancia2">0 m</strong>
+            </div>
+        </section>
+
+        <div class="mensagem" id="status">Carregando a cidade...</div>
+
+        <div class="tela-inicial" id="telaInicial">
+            <div class="cartao-inicial">
+                <span class="icone-carro">🏎️</span>
+                <h1>CITY RACING</h1>
+                <p>Uma corrida pelas ruas da cidade</p>
+                <button id="iniciar">COMEÇAR CORRIDA</button>
+                <small>Dois jogadores • Cidade 3D</small>
+            </div>
+        </div>
+
+        <div class="controles">
+            <div class="direcao">
+                <button class="controle" data-tecla="a">◀</button>
+                <button class="controle" data-tecla="d">▶</button>
+            </div>
+
+            <div class="pedais">
+                <button class="pedal freio" data-tecla="s">FREIO</button>
+                <button class="pedal acelerar" data-tecla="w">ACELERAR</button>
+            </div>
+        </div>
+
+        <footer class="rodape">
+            <span>🏙️ CITY RACING 3D</span>
+            <span id="mensagemRodape">Prepare-se para correr!</span>
+        </footer>
+    </main>
+
+    <script type="module" src="./Script.js"></script>
+</body>
+
+</html>
