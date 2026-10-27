@@ -450,3 +450,262 @@ body {
     font-size: 8px;
   }
 }
+
+
+/* Controles dos dois jogadores */
+.controles-dois {
+    position: absolute;
+    bottom: 45px;
+    left: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    pointer-events: none;
+}
+
+/* Área de cada jogador */
+.controle-jogador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+.controle-jogador strong {
+    font-size: 12px;
+    color: white;
+    text-shadow: 0 2px 4px black;
+}
+
+/* Botões */
+.botoes-mobile {
+    display: flex;
+    gap: 6px;
+}
+
+.botoes-mobile button {
+    width: 48px;
+    height: 52px;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    background: #34495e;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+/* Jogador 1 vermelho */
+.jogador1-mobile button {
+    background: #c62828;
+}
+
+/* Jogador 2 azul */
+.jogador2-mobile button {
+    background: #1565c0;
+}
+
+/* Efeito ao pressionar */
+.botoes-mobile button:active {
+    filter: brightness(1.5);
+}
+
+/* Ajustes para celulares */
+@media (max-width: 800px) {
+    .controles-dois {
+        bottom: 30px;
+        gap: 8px;
+    }
+
+    .botoes-mobile button {
+        width: clamp(29px, 6vw, 43px);
+        height: 45px;
+        font-size: 12px;
+    }
+
+    .botoes-mobile {
+        gap: 3px;
+    }
+
+    .controle-jogador strong {
+        font-size: 10px;
+    }
+}
+
+/* Oculta controles antigos */
+.controles {
+    display: none;
+}
+
+
+/* Fundo da abertura */
+.tela-inicial {
+    background: radial-gradient(
+        circle at center,
+        #19365c 0%,
+        #080d1a 75%
+    );
+    animation: aparecer 0.8s ease;
+}
+
+/* Cartão principal */
+.cartao-inicial {
+    position: relative;
+    overflow: hidden;
+    width: min(450px, 95%);
+    border: 2px solid #00c6ff;
+    background: linear-gradient(145deg, #101d32, #07101f);
+    box-shadow: 0 0 35px #00c6ff55;
+    animation: subir 0.9s ease;
+}
+
+/* Mensagem de boas-vindas */
+.boas-vindas {
+    color: #00d9ff !important;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+/* Carro animado */
+.carro-animado {
+    font-size: 70px;
+    margin: 15px 0;
+    animation: carroMexendo 1.8s ease-in-out infinite;
+}
+
+/* Título */
+.cartao-inicial h1 {
+    color: white;
+    font-size: clamp(25px, 6vw, 39px);
+    text-shadow: 0 0 18px #00c6ff;
+}
+
+.cartao-inicial h1 span {
+    color: #00d9ff;
+}
+
+/* Descrição */
+.descricao-abertura {
+    font-size: 14px !important;
+    color: #d7e8f5 !important;
+}
+
+/* Jogadores */
+.versus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    font-size: 12px;
+}
+
+.player1 {
+    color: #ff5555;
+}
+
+.player2 {
+    color: #4db8ff;
+}
+
+.versus strong {
+    color: white;
+    font-size: 18px;
+}
+
+/* Botão de começar */
+#iniciar {
+    background: linear-gradient(90deg, #00c6ff, #005bff);
+    box-shadow: 0 0 20px #00c6ff66;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#iniciar:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 30px #00c6ffaa;
+}
+
+/* Animações */
+@keyframes aparecer {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes subir {
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes carroMexendo {
+    0%, 100% {
+        transform: translateX(-12px) rotate(-3deg);
+    }
+    50% {
+        transform: translateX(12px) rotate(3deg);
+    }
+}
+
+/* Ajuste para celular */
+@media (max-width: 800px) {
+    .cartao-inicial {
+        padding: 16px;
+    }
+
+    .carro-animado {
+        font-size: 45px;
+        margin: 5px 0;
+    }
+
+    .versus {
+        gap: 8px;
+        margin: 10px 0;
+    }
+}
+
+@media (max-height: 450px) {
+    .cartao-inicial {
+        padding: 10px 18px;
+    }
+
+    .carro-animado {
+        font-size: 32px;
+        margin: 2px 0;
+    }
+
+    .cartao-inicial h1 {
+        margin-top: 2px;
+    }
+
+    .cartao-inicial p {
+        margin: 5px 0;
+    }
+
+    .versus {
+        margin: 7px 0;
+    }
+
+    .cartao-inicial > small {
+        margin-top: 6px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tela-inicial,
+    .cartao-inicial,
+    .carro-animado {
+        animation: none;
+    }
+}

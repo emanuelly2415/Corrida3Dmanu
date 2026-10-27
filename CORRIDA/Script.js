@@ -450,22 +450,42 @@ window.addEventListener("keyup", (evento) => {
 });
 
 // CONTROLES NA TELA PARA O JOGADOR 1
+
+// CONTROLES NA TELA PARA OS DOIS JOGADORES
 document.querySelectorAll("[data-tecla]").forEach((botao) => {
-  const tecla = botao.dataset.tecla;
 
-  botao.addEventListener("pointerdown", (evento) => {
-    evento.preventDefault();
-    teclasPressionadas[tecla] = true;
-    botao.setPointerCapture(evento.pointerId);
-  });
+    const tecla = botao.dataset.tecla;
+    const toques = new Set();
 
-  const soltar = () => {
-    teclasPressionadas[tecla] = false;
-  };
+    // Pressionar o botão
+    botao.addEventListener("pointerdown", (evento) => {
+        evento.preventDefault();
 
-  botao.addEventListener("pointerup", soltar);
-  botao.addEventListener("pointercancel", soltar);
-  botao.addEventListener("lostpointercapture", soltar);
+        toques.add(evento.pointerId);
+        teclasPressionadas[tecla] = true;
+
+        botao.setPointerCapture(evento.pointerId);
+    });
+
+    // Soltar o botão
+    function soltar(evento) {
+        toques.delete(evento.pointerId);
+
+        if (toques.size === 0) {
+            teclasPressionadas[tecla] = false;
+        }
+    }
+
+    botao.addEventListener("pointerup", soltar);
+    botao.addEventListener("pointercancel", soltar);
+    botao.addEventListener("lostpointercapture", soltar);
+});
+
+// Evita teclas presas quando o jogo perde o foco
+window.addEventListener("blur", () => {
+    Object.keys(teclasPressionadas).forEach((tecla) => {
+        teclasPressionadas[tecla] = false;
+    });
 });
 
 // MOVIMENTO INDEPENDENTE

@@ -73,27 +73,65 @@
 
         <div class="mensagem" id="status">Carregando a cidade...</div>
 
-        <div class="tela-inicial" id="telaInicial">
-            <div class="cartao-inicial">
-                <span class="icone-carro">🏎️</span>
-                <h1>CITY RACING</h1>
-                <p>Uma corrida pelas ruas da cidade</p>
-                <button id="iniciar">COMEÇAR CORRIDA</button>
-                <small>Dois jogadores • Cidade 3D</small>
-            </div>
+<!-- Tela de abertura do jogo -->
+<div class="tela-inicial" id="telaInicial">
+    <div class="cartao-inicial">
+
+        <div class="luz-abertura"></div>
+
+        <p class="boas-vindas">🏁 BEM-VINDO À CORRIDA</p>
+
+        <div class="carro-animado">🏎️</div>
+
+        <h1>CITY RACING <span>3D</span></h1>
+
+        <p class="descricao-abertura">
+            Dois jogadores. Dois carros. Um vencedor.
+        </p>
+
+        <div class="versus">
+            <span class="player1">🔴 JOGADOR 1</span>
+            <strong>VS</strong>
+            <span class="player2">🔵 JOGADOR 2</span>
         </div>
 
-        <div class="controles">
-            <div class="direcao">
-                <button class="controle" data-tecla="a">◀</button>
-                <button class="controle" data-tecla="d">▶</button>
-            </div>
+        <button id="iniciar">🏁 COMEÇAR CORRIDA</button>
 
-            <div class="pedais">
-                <button class="pedal freio" data-tecla="s">FREIO</button>
-                <button class="pedal acelerar" data-tecla="w">ACELERAR</button>
-            </div>
+        <small>Prepare-se para acelerar!</small>
+
+    </div>
+</div>
+
+
+       
+<!-- Controles para os dois jogadores no celular -->
+<div class="controles-dois">
+
+    <!-- Jogador 1 -->
+    <div class="controle-jogador jogador1-mobile">
+        <strong>🔴 JOGADOR 1</strong>
+
+        <div class="botoes-mobile">
+            <button data-tecla="a">◀</button>
+            <button data-tecla="d">▶</button>
+            <button data-tecla="s">FREIO</button>
+            <button data-tecla="w">▲</button>
         </div>
+    </div>
+
+    <!-- Jogador 2 -->
+    <div class="controle-jogador jogador2-mobile">
+        <strong>🔵 JOGADOR 2</strong>
+
+        <div class="botoes-mobile">
+            <button data-tecla="arrowleft">◀</button>
+            <button data-tecla="arrowright">▶</button>
+            <button data-tecla="arrowdown">FREIO</button>
+            <button data-tecla="arrowup">▲</button>
+        </div>
+    </div>
+
+</div>
 
         <footer class="rodape">
             <span>🏙️ CITY RACING 3D</span>
