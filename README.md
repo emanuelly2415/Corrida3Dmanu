@@ -51,6 +51,9 @@ City-Racing-3D/
 
 > O jogo utiliza bibliotecas e modelos carregados pela internet. Por isso, é necessário estar conectado à internet durante a execução.
 
+## 🌐 Acesse o jogo
+[City Racing 3D](https://emanuelly2415.github.io/Corrida3Dmanu/CORRIDA/carro.html)
+
 ## 🌐 Publicação
 
 O projeto pode ser publicado pelo **GitHub Pages**. Nas configurações do repositório, selecione a branch `main` e a pasta `/(root)` como origem da publicação, caso o arquivo `index.html` esteja na raiz.
